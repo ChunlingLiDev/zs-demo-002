@@ -1,0 +1,42 @@
+.wrap {
+  padding: 20px;
+  color: #333;
+}
+
+.back {
+  color: #93c3e8;
+}
+
+.Investment {
+  font-size: 23px;
+}
+
+.Viewing {
+  font-size: 14px;
+}
+
+.Individual {
+  font-size: 22px;
+}
+.col-value {
+  font-size: 24px;
+}
+.left-pie {
+  border: 1px solid #a0a0a0;
+  border-radius: 10px;
+  width: 30%;
+  text-align: center;
+  line-height: 40px;
+  padding: auto;
+  height: 300px;
+  margin-bottom: 20px;
+}
+.right-bar {
+  border: 1px solid #a0a0a0;
+  border-radius: 10px;
+  width: 68%;
+  text-align: center;
+  line-height: 40px;
+  height: 300px;
+  margin-bottom: 20px;
+}
