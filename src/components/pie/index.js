@@ -9,6 +9,7 @@ export default class Pie extends Component {
   }
  
   componentDidMount() {
+    console.log('111 :>> ', 111);
     let width = 300;
     let height = 250;
 
