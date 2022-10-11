@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { Table, Row, Col } from "antd";
+import { Table, Row, Col, Select } from "antd";
 import Pie from "../../components/pie";
 import Bar from "../../components/bar";
+
+const { Option } = Select;
 export default class Overview extends Component {
   constructor(props) {
     super(props);
@@ -90,6 +92,8 @@ export default class Overview extends Component {
         },
       ],
       checkText: "UMA",
+      wrapCon: "Individual Investment Acct.",
+      selectId: 1,
     };
   }
   handleAdd() {
@@ -103,20 +107,32 @@ export default class Overview extends Component {
       Yield: "1%",
       Market: "$17,720.00",
     });
-
-    this.setState({ dataSource }, () => {
-      console.log("dataSource :>> ", dataSource);
-    });
+    this.setState({ dataSource });
+  }
+  selectChange(obj) {
+    console.log("obj :>> ", obj);
+    let { wrapCon, checkText } = this.state;
+    wrapCon =
+      obj === "UMA"
+        ? "Individual Investment Acct."
+        : "Individual Investment SMA 1";
+    checkText = obj;
+    this.setState({ wrapCon, checkText });
   }
   render() {
-    let { dataSource, columns, checkText } = this.state;
+    let { dataSource, columns, checkText, wrapCon } = this.state;
 
     return (
       <div>
         <div className="w-100 flex jc-sb">
           <div className="flex Individual">
-            Individual Investment Acct.<div>{checkText}</div>
+            {wrapCon}
+            <div className="checkItem">{checkText}</div>
           </div>
+          <Select defaultValue="UMA" onChange={this.selectChange.bind(this)}>
+            <Option value="UMA">UMA</Option>
+            <Option value="SMA">SMA</Option>
+          </Select>
         </div>
         <Row>
           <Col span={8}>
